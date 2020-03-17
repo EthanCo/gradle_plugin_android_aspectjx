@@ -65,8 +65,10 @@ class AJXTransform extends Transform {
 
         Project project = ajxProcedure.project
 
-        TransformTask transformTask = (TransformTask)transformInvocation.context
-        VariantCache variantCache = new VariantCache(ajxProcedure.project, ajxProcedure.ajxCache, transformTask.variantName)
+//        TransformTask transformTask = (TransformTask)transformInvocation.context
+//        VariantCache variantCache = new VariantCache(ajxProcedure.project, ajxProcedure.ajxCache, transformTask.variantName)
+        String variantName = transformInvocation.getContext().getVariantName()
+        VariantCache variantCache = new VariantCache(ajxProcedure.project, ajxProcedure.ajxCache, variantName)
 
         ajxProcedure.with(new CheckAspectJXEnableProcedure(project, variantCache, transformInvocation))
 
